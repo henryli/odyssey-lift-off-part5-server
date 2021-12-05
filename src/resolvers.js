@@ -37,11 +37,13 @@ const resolvers = {
     },
   },
   Track: {
+    durationinseconds: ({ length }) => { length };
     author: ({ authorId }, _, { dataSources }) => {
       return dataSources.trackAPI.getAuthor(authorId);
     },
 
     modules: ({ id }, _, { dataSources }) => {
+      durationinseconds: ({ length }) => { length };
       return dataSources.trackAPI.getTrackModules(id);
     },
   },
